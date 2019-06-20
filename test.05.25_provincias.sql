@@ -27,8 +27,8 @@ CREATE TABLE `provincias` (
   `nombre` varchar(50) DEFAULT NULL,
   `pais_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `pais_id` (`pais_id`),
-  CONSTRAINT `provincias_ibfk_1` FOREIGN KEY (`pais_id`) REFERENCES `paises` (`id`)
+  KEY `fk_prov_pais_idx` (`pais_id`),
+  CONSTRAINT `fk_prov_pais` FOREIGN KEY (`pais_id`) REFERENCES `paises` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,7 +38,6 @@ CREATE TABLE `provincias` (
 
 LOCK TABLES `provincias` WRITE;
 /*!40000 ALTER TABLE `provincias` DISABLE KEYS */;
-INSERT INTO `provincias` VALUES (1,'C.A.B.A.',54),(5,'Santa Fe',54),(8,'La Pampa',54),(75,'Carmelo',598),(77,'Montevideo',598),(96,'Cataluña',34);
 /*!40000 ALTER TABLE `provincias` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-26 19:14:44
+-- Dump completed on 2019-06-20 14:44:19

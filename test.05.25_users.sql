@@ -26,21 +26,16 @@ CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
-  `user_name` varchar(50) NOT NULL,
   `email` varchar(80) NOT NULL,
   `country_code` char(2) DEFAULT NULL,
-  `ciudad_id` int(10) unsigned NOT NULL,
   `birth_date` date DEFAULT NULL,
   `sex` char(1) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `avatar_url` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `user_name` (`user_name`),
-  UNIQUE KEY `email` (`email`),
-  KEY `ciudad_id` (`ciudad_id`),
-  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`ciudad_id`) REFERENCES `ciudades` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +44,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'fernando','gusman','fergus','fgusman@yahoo.com','AR',2,'1979-04-29','m','hash123','','2019-05-26 16:19:08'),(2,'claudia','moreira','clau','claudiamor@speedy.com','AR',3,'1961-01-18','f','hash123','','2019-05-26 16:19:08'),(3,'nora amalia','casafus','noracasasuf','nacasafus@gmail.com','CH',15,'1982-06-09','f','hash123','','2019-05-26 16:19:08'),(4,'lisandro','felipe','lisandro','lfelipe@yahoo.com','AR',3,'1989-08-11','m','hash123','','2019-05-26 16:19:08'),(5,'ema','di marco','emadm','emadimarco@gmail.com','UY',12,'1985-03-16','f','hash123','','2019-05-26 16:19:08'),(6,'julian','requejo','jrequejo','jrequejo@hotmail.com','AR',1,'1981-09-22','m','hash123','','2019-05-26 16:19:08');
+INSERT INTO `users` VALUES (1,'fernando','gusman','fgusman@yahoo.com','AR','1979-04-29','m','hash123','','2019-05-26 16:19:08'),(2,'claudia','moreira','claudiamor@speedy.com','AR','1961-01-18','f','hash123','','2019-05-26 16:19:08'),(3,'nora amalia','casafus','nacasafus@gmail.com','CH','1982-06-09','f','hash123','','2019-05-26 16:19:08'),(4,'lisandro','felipe','lfelipe@yahoo.com','AR','1989-08-11','m','hash123','','2019-05-26 16:19:08'),(5,'ema','di marco','emadimarco@gmail.com','UY','1985-03-16','f','hash123','','2019-05-26 16:19:08'),(6,'julian','requejo','jrequejo@hotmail.com','AR','1981-09-22','m','hash123','','2019-05-26 16:19:08'),(20,'Flavio','Hualpa','fh@mail.com','ar','1972-03-05','m','$2y$10$H5gapA.Cm8X2aAlbZKIa5.VFED/DstmD0hT8HAeN23uqBaeqkrJ.a',NULL,'2019-06-17 23:29:10'),(21,'Flavio','Hualpa','fh2@mail.com','ar','1972-03-05','m','$2y$10$O/JNFp6xXiWyyoVI7L.wkOyLAY2yfDg6jGPA9HiOLYgKK3ed1Ca76',NULL,'2019-06-17 23:30:51');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -62,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-26 19:14:42
+-- Dump completed on 2019-06-20 14:44:17
